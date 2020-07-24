@@ -21,14 +21,23 @@
 	"repository": {
 		"keywords": {
 			"patterns": [
-			{
-				"name": "constant.language.mtots",
-				"match": "\\b(true|false|nil)\\b"
-			},
-			{
-				"name": "keyword.control.kb",
-				"match": "\\b(fn|import|var|if|elif|else|end|is|not|and|or|in|yield|assert|to|then|try|catch|throw|PRINT|GOTO|DIM|LET|IF|ELSEIF|ELSE|END|DO|WHILE|LOOP|FUNCTION|TO|THEN|AND|OR|NEXT|APPEND|NAME|DISASM|LEN|STR|REPR|COS|SIN|TAN|ACOS|ASIN|ATAN|TEST|SUB)\\b"
-			}]
+				{
+					"name": "constant.language.kb",
+					"match": "\\b(true|false|nil)\\b"
+				},
+				{
+					"name": "support.variable.kb",
+					"match": "\\b(NEXT|APPEND|NAME|DISASM|LEN|STR|REPR|COS|SIN|TAN|ACOS|ASIN|ATAN|ATAN2)\\b"
+				},
+				{
+					"name": "keyword.control.kb",
+					"match": "\\b(and|or|AND|OR|in|is|not|yield)\\b"
+				},
+				{
+					"name": "keyword.control.kb",
+					"match": "\\b(end|END|TEST|SUB|FUNCTION|fn|import|var|if|elif|else|IF|ELSEIF|ELSE|THEN|then|DO|WHILE|while|for|FOR|LOOP|TO|to|try|catch|throw|PRINT|GOTO|DIM|LET|assert)\\b"
+				}
+			]
 		},
 		"number": {
 			"comment": "int or float literals",
@@ -110,7 +119,7 @@
 					"match": "\\b([A-Za-z][A-Za-z0-9_]*|_[A-Za-z0-9_]+)\\s*\\(",
 					"captures": {
 						"1": {
-							"name": "entity.name.function.mtots"
+							"name": "entity.name.function.kb"
 						}
 					}
 				}
