@@ -3,6 +3,7 @@
     "displayName": "kb",
     "description": "Language support for kb",
     "version": "0.0.1",
+    "publisher": "mtots",
     "engines": {
         "vscode": "^1.47.0"
     },
