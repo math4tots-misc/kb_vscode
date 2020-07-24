@@ -1,0 +1,25 @@
+{
+    "name": "kb",
+    "displayName": "kb",
+    "description": "Language support for kb",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.47.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "kb",
+            "aliases": ["kb", "kb"],
+            "extensions": [".kb"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "kb",
+            "scopeName": "source.kb",
+            "path": "./syntaxes/kb.tmLanguage.json"
+        }]
+    }
+}

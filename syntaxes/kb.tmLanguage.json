@@ -1,0 +1,121 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "kb",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#number"
+		},
+		{
+			"include": "#string_literal"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#classify_names"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+			{
+				"name": "constant.language.mtots",
+				"match": "\\b(true|false|nil)\\b"
+			},
+			{
+				"name": "keyword.control.kb",
+				"match": "\\b(fn|import|var|if|elif|else|end|is|not|and|or|in|yield|assert|to|then|try|catch|throw|PRINT|GOTO|DIM|LET|IF|ELSEIF|ELSE|END|DO|WHILE|LOOP|FUNCTION|TO|THEN|AND|OR|NEXT|APPEND|NAME|DISASM|LEN|STR|REPR|COS|SIN|TAN|ACOS|ASIN|ATAN|TEST|SUB)\\b"
+			}]
+		},
+		"number": {
+			"comment": "int or float literals",
+			"patterns": [
+				{
+					"comment": "Integer literal (hexadecimal)",
+					"name": "constant.numeric.integer.hexadecimal.kb",
+					"match": "\\b0x[a-fA-F0-9_]+\\b"
+				},
+				{
+					"comment": "Integer literal (decimal)",
+					"name": "constant.numeric.integer.decimal.kb",
+					"match": "\\b[0-9][0-9_]*\\b"
+				},
+				{
+					"comment": "Floating point literal (fraction)",
+					"name": "constant.numeric.float.kb",
+					"match": "\\b[0-9][0-9_]*\\.[0-9][0-9_]*([eE][+-]?[0-9_]+)?\\b"
+				}
+			]
+		},
+		"string_literal": {
+			"comment": "String literal",
+			"patterns": [
+				{"include": "#raw_double_quote_string_literal"},
+				{"include": "#raw_single_quote_string_literal"},
+				{"include": "#double_quote_string_literal"},
+				{"include": "#single_quote_string_literal"},
+				{"include": "#line_string_literal"}
+			]
+		},
+		"escaped_character": {
+			"name": "constant.character.escape.kb",
+			"match": "\\\\(x[0-9A-Fa-f]{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)"
+		},
+		"line_string_literal": {
+			"comment": "Line comment style string literals",
+			"name": "string.kb",
+			"match": "#.*$"
+		},
+		"single_quote_string_literal": {
+			"comment": "Single-quote string literal",
+			"name": "string.quoted.single.kb",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"include": "#escaped_character"
+				}
+			]
+		},
+		"double_quote_string_literal": {
+			"comment": "Double-quote string literal",
+			"name": "string.quoted.double.kb",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"include": "#escaped_character"
+				}
+			]
+		},
+		"raw_double_quote_string_literal": {
+			"comment": "Raw double-quote string literal",
+			"name": "string.quoted.double.raw.kb",
+			"begin": "r(#*)\"",
+			"end": "\"\\1"
+		},
+		"raw_single_quote_string_literal": {
+			"comment": "Raw single-quote string literal",
+			"name": "string.quoted.single.raw.kb",
+			"begin": "r(#*)'",
+			"end": "'\\1"
+		},
+		"classify_names": {
+			"patterns": [
+				{
+					"comment": "Function or method call (best effort)",
+					"match": "\\b([A-Za-z][A-Za-z0-9_]*|_[A-Za-z0-9_]+)\\s*\\(",
+					"captures": {
+						"1": {
+							"name": "entity.name.function.mtots"
+						}
+					}
+				}
+			]
+		}
+	},
+	"scopeName": "source.kb"
+}
