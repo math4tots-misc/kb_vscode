@@ -27,15 +27,15 @@
 				},
 				{
 					"name": "support.variable.kb",
-					"match": "\\b(NEXT|APPEND|NAME|DISASM|LEN|STR|REPR|COS|SIN|TAN|ACOS|ASIN|ATAN|ATAN2)\\b"
+					"match": "\\b(NEXT|APPEND|NAME|DISASM|LEN|STR|REPR|COS|SIN|TAN|ACOS|ASIN|ATAN|ATAN2|CAT|TYPE|ADD|POP|REMOVE|DELETE)\\b"
 				},
 				{
 					"name": "keyword.control.kb",
-					"match": "\\b(and|or|AND|OR|in|is|not|yield)\\b"
+					"match": "\\b(and|or|in|is|not|yield|AND|OR|IN|NOT)\\b"
 				},
 				{
 					"name": "keyword.control.kb",
-					"match": "\\b(end|END|TEST|SUB|FUNCTION|fn|import|var|if|elif|else|IF|ELSEIF|ELSE|THEN|then|DO|WHILE|while|for|FOR|LOOP|TO|to|try|catch|throw|PRINT|GOTO|DIM|LET|assert|RETURN|return)\\b"
+					"match": "\\b(end|test|fn|import|as|var|if|elif|else|then|while|for|to|try|catch|throw|assert|return|print|RETURN|PRINT|GOTO|DIM|LET|IF|ELSEIF|ELSE|THEN|DO|WHILE|FOR|LOOP|TO|FUNCTION|END|SUB|TEST)\\b"
 				}
 			]
 		},
@@ -114,6 +114,15 @@
 		},
 		"classify_names": {
 			"patterns": [
+				{
+					"comment": "Function definition (best effort)",
+					"match": "(?<=\\b(?:TEST|SUB|FUNCTION|test|fn|fn\\*)\\s+)([A-Za-z_][A-Za-z0-9_]*)\\b",
+					"captures": {
+						"1": {
+							"name": "entity.name.function.kb"
+						}
+					}
+				},
 				{
 					"comment": "Function or method call (best effort)",
 					"match": "\\b([A-Za-z][A-Za-z0-9_]*|_[A-Za-z0-9_]+)\\s*\\(",
