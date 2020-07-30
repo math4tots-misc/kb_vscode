@@ -27,7 +27,7 @@
 				},
 				{
 					"name": "support.variable.kb",
-					"match": "\\b(NEXT|APPEND|NAME|DISASM|LEN|STR|REPR|COS|SIN|TAN|ACOS|ASIN|ATAN|ATAN2|CAT|TYPE|ADD|POP|REMOVE|DELETE)\\b"
+					"match": "\\b(NEXT|DISASM|CAT|DELETE|SORTED|SEND|TIME|SLEEP|NAME|STR|REPR|LIST|SET|MAP|LEN|TYPE|POP|SORT|SIN|COS|TAN|ASIN|ACOS|ATAN|ADD|EXTEND|REMOVE|ATAN2)\\b"
 				},
 				{
 					"name": "keyword.control.kb",
@@ -35,7 +35,7 @@
 				},
 				{
 					"name": "keyword.control.kb",
-					"match": "\\b(end|test|fn|import|as|var|if|elif|else|then|while|for|to|try|catch|throw|assert|return|print|RETURN|PRINT|GOTO|DIM|LET|IF|ELSEIF|ELSE|THEN|DO|WHILE|FOR|LOOP|TO|FUNCTION|END|SUB|TEST)\\b"
+					"match": "\\b(end|test|fn|import|as|var|if|elif|else|then|while|for|to|try|catch|throw|assert|return|print|RETURN|PRINT|GOTO|DIM|LET|IF|ELSEIF|ELSE|THEN|DO|WHILE|FOR|LOOP|TO|FUNCTION|END|SUB|TEST|SELECT|CASE)\\b"
 				}
 			]
 		},
